@@ -16,7 +16,7 @@
   <body>
     <div>
       <h1>Welcome , please sign up</h1>
-      <form action="/user" method="POST">
+      <form action="/userSignup" method="POST">
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" required />
         <br />
@@ -28,15 +28,14 @@
         <br />
         <label for="type">type:</label>
         <br />
-        <input type="radio" name="type" id="Business" value="Business" />
+        <input type="radio" name="type" id="Business" value="business" />
         <label for="Business">Business</label>
-        <br />
-        <input type="radio" name="type" id="Private" value="Private" />
+        <input type="radio" name="type" id="Private" value="private" />
         <label for="Private">Private</label>
         <br />
         <input type="submit" value="signup" />
         <br />
-        <p>Already Signed up? please <a href="login.html">log in</a></p>
+        <p>Already Signed up? please <a href="login">log in</a></p>
       </form>
     </div>
   </body>
