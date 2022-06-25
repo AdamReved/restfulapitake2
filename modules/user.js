@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -23,8 +25,14 @@ const userSchema = new mongoose.Schema({
     required: [true],
     enum: ["business", "private"],
   },
+  createdAt: { type: Date, default: Date.now },
 });
 userSchema.set("validateBeforeSave", false);
+//instance method token generator
+userSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ _id: this._id }, config.get("jwtKey"));
+  return token;
+};
 
 const User = mongoose.model("user", userSchema);
 module.exports = User;
